@@ -1,14 +1,14 @@
 {
   "name": "elevenlabs-node",
-  "version": "2.0.3",
-  "description": "This is an open source Eleven Labs NodeJS package for converting text to speech using the Eleven Labs API",
+  "version": "1.0.0",
+  "description": "This is an EvryAI version of the open source Eleven Labs NodeJS package for converting text to speech using the Eleven Labs API",
   "main": "index.js",
   "scripts": {
     "test": "jest --testPathPattern=test --forceExit"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FelixWaweru/elevenlabs-node.git"
+    "url": "git+https://github.com/EvryAI/elevenlabs-node.git"
   },
   "keywords": [
     "api",
@@ -19,12 +19,12 @@
     "ai",
     "voice"
   ],
-  "author": "Felix Waweru",
+  "author": "Patrick Rho",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/FelixWaweru/elevenlabs-node/issues"
+    "url": "https://github.com/EvryAI/elevenlabs-node/issues"
   },
-  "homepage": "https://github.com/FelixWaweru/elevenlabs-node#readme",
+  "homepage": "https://github.com/EvryAI/elevenlabs-node#readme",
   "dependencies": {
     "axios": "^1.4.0",
     "fs-extra": "^11.1.1"

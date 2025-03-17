@@ -42,6 +42,8 @@ Function that converts text to speech and saves the audio file to the specified 
 
 @param {boolean} speakerBoost - The speaker boost setting for the voice.
 
+@param {boolean} enable_logging - When set to false, zero retention mode will be used for the request. History features will be unavailable. Only available for enterprise customers. Defaults to false.
+
 @returns {Object} - An object containing the status of the operation.
 */
 ElevenLabs.prototype.textToSpeech = async function({
@@ -52,7 +54,8 @@ ElevenLabs.prototype.textToSpeech = async function({
     similarityBoost,
     modelId,
     style,
-    speakerBoost
+    speakerBoost,
+    enable_logging = false
 }) {
     try {
         if (!fileName) {
@@ -68,10 +71,15 @@ ElevenLabs.prototype.textToSpeech = async function({
         const stabilityValue = stability ? stability : 0;
         const similarityBoostValue = similarityBoost ? similarityBoost : 0;
         const styleValue = style ? style : 0;
+        
+        // Add enable_logging parameter to URL if it's explicitly set to false
+        const urlWithParams = enable_logging === false ? 
+            `${voiceURL}?enable_logging=false` : 
+            voiceURL;
 
         const response = await axios({
             method: "POST",
-            url: voiceURL,
+            url: urlWithParams,
             data: {
                 text: textInput,
                 voice_settings: {
@@ -127,6 +135,8 @@ Function that converts text to speech and returns a readable stream of the audio
 
 @param {boolean} speakerBoost - The speaker boost setting for the voice.
 
+@param {boolean} enable_logging - When set to false, zero retention mode will be used for the request. History features will be unavailable. Only available for enterprise customers. Defaults to false.
+
 @returns {Object} - A readable stream of the audio data.
 */
 ElevenLabs.prototype.textToSpeechStream = async function({
@@ -137,7 +147,8 @@ ElevenLabs.prototype.textToSpeechStream = async function({
     modelId,
     responseType,
     style,
-    speakerBoost
+    speakerBoost,
+    enable_logging = false
 }) {
     try {
         if (!textInput) {
@@ -150,10 +161,15 @@ ElevenLabs.prototype.textToSpeechStream = async function({
         const stabilityValue = stability ? stability : 0;
         const similarityBoostValue = similarityBoost ? similarityBoost : 0;
         const styleValue = style ? style : 0;
+        
+        // Add enable_logging parameter to URL if it's explicitly set to false
+        const urlWithParams = enable_logging === false ? 
+            `${voiceURL}?enable_logging=false` : 
+            voiceURL;
 
         const response = await axios({
             method: "POST",
-            url: voiceURL,
+            url: urlWithParams,
             data: {
                 text: textInput,
                 voice_settings: {
