@@ -1,5 +1,5 @@
 {
-  "name": "elevenlabs-node",
+  "name": "elevenlabs-node-evryai",
   "version": "1.0.0",
   "description": "This is an EvryAI version of the open source Eleven Labs NodeJS package for converting text to speech using the Eleven Labs API",
   "main": "index.js",
